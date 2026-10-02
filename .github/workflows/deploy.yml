@@ -33,7 +33,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      # enablement: true faz a action trocar a origem do Pages para "GitHub
+      # Actions" via API. Sem isso, um repositório configurado para servir a
+      # branch continua publicando o código-fonte, e o deploy do Actions é
+      # criado mas nunca vai ao ar.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
