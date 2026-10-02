@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0f1d49;
+  color: #efefef;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .parallax-layer {
+    transform: none !important;
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.section-badge.cyan {
+  background: rgba(117, 229, 255, 0.15);
+  border: 1px solid #1af0ff;
+  color: #1af0ff;
+}
+
+.section-badge.yellow {
+  background: rgba(212, 219, 19, 0.15);
+  border: 1px solid #d4db13;
+  color: #d4db13;
+}
+
+.btn-yellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: linear-gradient(90deg, #d4db13, #b3db13);
+  border: 1px solid #d4db13;
+  border-radius: 30px;
+  color: #272727;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-yellow:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(212, 219, 19, 0.3);
+  filter: brightness(1.05);
+}
+
+.btn-yellow:active {
+  transform: translateY(0) scale(0.99);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
+.btn-cyan {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: linear-gradient(90deg, #1af0ff 19%, #2487d8 97%);
+  border: 1px solid #1af0ff;
+  border-radius: 30px;
+  color: #0f1d49;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-cyan:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(26, 240, 255, 0.3);
+  filter: brightness(1.05);
+}
+
+.btn-cyan:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-cyan-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: linear-gradient(90deg, #32b3d1, #2487d8);
+  border: 1px solid #24bbb6;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-cyan-outline:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(36, 187, 182, 0.3);
+  filter: brightness(1.05);
+}
+
+.btn-cyan-outline:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: #1af0ff;
+  background: rgba(50, 179, 209, 0.34);
+  border: 1px solid #1af0ff;
+  backdrop-filter: blur(4px);
+}
+
+.course-card {
+  background: rgba(26, 240, 255, 0.1);
+  border: 1px solid #1af0ff;
+  border-radius: 40px;
+  padding: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(26, 240, 255, 0.15);
+}
+
+.feature-card {
+  background: rgba(26, 240, 255, 0.1);
+  border: 1px solid #1af0ff;
+  border-radius: 40px;
+  padding: 40px 32px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(26, 240, 255, 0.15);
+}
+
+.icon-box-cyan {
+  background: rgba(26, 240, 255, 0.2);
+  border: 1px solid #1af0ff;
+  border-radius: 20px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.icon-box-yellow {
+  background: rgba(212, 219, 19, 0.26);
+  border: 1px solid #d4db13;
+  border-radius: 20px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.contact-card {
+  background: rgba(26, 240, 255, 0.2);
+  border: 1px solid #1af0ff;
+  border-radius: 40px;
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 240, 255, 0.2);
+}
+
+.form-input {
+  width: 100%;
+  height: 56px;
+  background: #c0caf0;
+  border: none;
+  border-radius: 30px;
+  padding: 0 24px;
+  color: #50556a;
+  font-size: 18px;
+  font-family: inherit;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  box-shadow: 0 0 0 2px #1af0ff;
+  background: #d0d8f8;
+}
+
+.form-input::placeholder {
+  color: #9eb3ff;
+}
+
+.form-select {
+  width: 100%;
+  height: 56px;
+  background: #c0caf0;
+  border: none;
+  border-radius: 30px;
+  padding: 0 24px;
+  color: #50556a;
+  font-size: 18px;
+  font-family: inherit;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.form-select:focus {
+  box-shadow: 0 0 0 2px #1af0ff;
+}
+
+.nav-link {
+  color: #efefef;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #1af0ff;
+}
+
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
