@@ -78,10 +78,15 @@ O deploy é feito pelo workflow `.github/workflows/deploy.yml`, que roda a cada
 push na branch padrão: ele instala as dependências, gera o build e publica a
 pasta `dist/`.
 
-**É preciso configurar isto uma vez no repositório:** em
-*Settings → Pages → Build and deployment → Source*, escolha **GitHub Actions**.
-Sem isso o Pages serve o código-fonte do repositório, e a página quebra com um
-404 em `/src/main.tsx` — esse arquivo é TypeScript e só existe antes do build.
+O passo `configure-pages` roda com `enablement: true`, que aponta a origem do
+Pages para o GitHub Actions pela API. Se por algum motivo isso não pegar (falta
+de permissão, por exemplo), faça na mão em *Settings → Pages → Build and
+deployment → Source* e escolha **GitHub Actions**.
+
+Enquanto a origem for *Deploy from a branch*, o Pages serve o código-fonte do
+repositório em vez do build: o navegador recebe o `index.html` de
+desenvolvimento e pede `/src/main.tsx`, que é TypeScript e só existe antes do
+build — daí um 404 no console.
 
 O build usa caminhos relativos, então o mesmo `dist/` funciona tanto na raiz de
 um domínio quanto em `https://<usuario>.github.io/<repositorio>/`, sem precisar
