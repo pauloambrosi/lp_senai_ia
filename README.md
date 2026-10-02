@@ -27,7 +27,6 @@ src/main.tsx            ponto de entrada do React
 src/App.tsx             a landing page inteira (todas as seções)
 src/index.css           estilos globais e as classes do design system
 public/assets/          imagens, ícones SVG e o vídeo de fundo do hero
-scripts/pack-site.mjs   gera o .zip oferecido no rodapé (roda após o build)
 ```
 
 ### Seções
@@ -66,9 +65,6 @@ decorativas com `data-parallax` se deslocam conforme o scroll. Tudo respeita
 - O vídeo de fundo do hero é H.264/AAC, suportado por Chrome, Edge, Safari e
   Firefox. Builds do Chromium sem codecs proprietários (os usados por alguns
   ambientes de teste automatizado) não o reproduzem.
-- O link "Baixar pacote completo do site (.zip)" no rodapé aponta para um
-  arquivo gerado no build por `scripts/pack-site.mjs`, que compacta o conteúdo
-  de `dist/`.
 
 ## Deploy
 

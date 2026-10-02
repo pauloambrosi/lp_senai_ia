@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 const assetPathPrefix = `${import.meta.env.BASE_URL}assets`;
-const sitePackagePath = `${import.meta.env.BASE_URL}senai-ia-site-completo.zip`;
 
 const videoHero = `${assetPathPrefix}/video-bg-curso-ia.mp4`;
 const imgSenaiLogo = `${assetPathPrefix}/f03ca.png`;
@@ -533,13 +532,6 @@ function Footer() {
   return (
     <footer className="bg-[#0a1535] py-8 px-6 md:px-12 text-center">
       <img src={imgSenaiLogo} alt="SENAI" className="h-8 object-contain mx-auto mb-4" />
-      <a
-        href={sitePackagePath}
-        download
-        className="inline-block mb-4 text-[#1af0ff] text-sm font-medium underline underline-offset-4 hover:text-white transition-colors"
-      >
-        Baixar pacote completo do site (.zip)
-      </a>
       <p className="text-[#efefef]/60 text-sm">
         © {new Date().getFullYear()} SENAI Bahia. Todos os direitos reservados.
       </p>
