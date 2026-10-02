@@ -63,14 +63,41 @@ decorativas com `data-parallax` se deslocam conforme o scroll. Tudo respeita
 - O formulário de inscrição ainda não envia dados: `handleSubmit` em
   `src/App.tsx` apenas exibe um `alert` de confirmação. Conectar a um backend,
   e-mail ou CRM é o próximo passo.
+- O vídeo de fundo do hero é H.264/AAC, suportado por Chrome, Edge, Safari e
+  Firefox. Builds do Chromium sem codecs proprietários (os usados por alguns
+  ambientes de teste automatizado) não o reproduzem.
 - O link "Baixar pacote completo do site (.zip)" no rodapé aponta para um
   arquivo gerado no build por `scripts/pack-site.mjs`, que compacta o conteúdo
   de `dist/`.
 
 ## Deploy
 
+### GitHub Pages (automático)
+
+O deploy é feito pelo workflow `.github/workflows/deploy.yml`, que roda a cada
+push na branch padrão: ele instala as dependências, gera o build e publica a
+pasta `dist/`.
+
+**É preciso configurar isto uma vez no repositório:** em
+*Settings → Pages → Build and deployment → Source*, escolha **GitHub Actions**.
+Sem isso o Pages serve o código-fonte do repositório, e a página quebra com um
+404 em `/src/main.tsx` — esse arquivo é TypeScript e só existe antes do build.
+
+O site fica em `https://<usuario>.github.io/<repositorio>/`. Como ele não está
+na raiz do domínio, o workflow passa o prefixo para o build via
+`PUBLIC_BASE_URL`, e é isso que faz os caminhos dos assets apontarem para o
+lugar certo.
+
+### Outras hospedagens
+
 O build é totalmente estático (`dist/`), e roda em qualquer hospedagem de
-arquivos. Para publicar em um subdiretório, defina a base no build:
+arquivos. Na raiz de um domínio não é preciso configurar nada:
+
+```bash
+npm run build
+```
+
+Para publicar em um subdiretório, informe o prefixo:
 
 ```bash
 PUBLIC_BASE_URL=/meu-subdiretorio/ npm run build
