@@ -28,12 +28,10 @@ jobs:
 
       - run: npm ci
 
-      # O site fica em https://<usuario>.github.io/<repositorio>/, então o
-      # build precisa saber esse prefixo para gerar os caminhos dos assets.
+      # O build usa caminhos relativos, então funciona em qualquer
+      # subdiretório sem precisar saber o prefixo do Pages.
       - name: Build
         run: npm run build
-        env:
-          PUBLIC_BASE_URL: /${{ github.event.repository.name }}/
 
       - uses: actions/configure-pages@v5
 

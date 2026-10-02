@@ -83,21 +83,21 @@ pasta `dist/`.
 Sem isso o Pages serve o código-fonte do repositório, e a página quebra com um
 404 em `/src/main.tsx` — esse arquivo é TypeScript e só existe antes do build.
 
-O site fica em `https://<usuario>.github.io/<repositorio>/`. Como ele não está
-na raiz do domínio, o workflow passa o prefixo para o build via
-`PUBLIC_BASE_URL`, e é isso que faz os caminhos dos assets apontarem para o
-lugar certo.
+O build usa caminhos relativos, então o mesmo `dist/` funciona tanto na raiz de
+um domínio quanto em `https://<usuario>.github.io/<repositorio>/`, sem precisar
+saber o prefixo na hora do build.
 
 ### Outras hospedagens
 
 O build é totalmente estático (`dist/`), e roda em qualquer hospedagem de
-arquivos. Na raiz de um domínio não é preciso configurar nada:
+arquivos, em qualquer caminho, sem configuração:
 
 ```bash
 npm run build
 ```
 
-Para publicar em um subdiretório, informe o prefixo:
+Se precisar de um prefixo absoluto (por exemplo, para servir os assets de um
+CDN), informe-o no build:
 
 ```bash
 PUBLIC_BASE_URL=/meu-subdiretorio/ npm run build
